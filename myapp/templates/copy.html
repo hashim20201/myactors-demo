@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Listing_actors</title>
+    <style>
+
+        body {
+  font-family: 'Roboto', sans-serif;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item me-3">
+            <a class="nav-link text-white active" aria-current="page" href="{% url 'actor_list' %}" class="btn btn-primary mt-3">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link text-white" href="{% url 'add_actors' %}">Add Actors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'search_actor' %}">Search Actors</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+    <h1 class="text-center pt-2">Actors</h1>
+
+    {% if messages %}
+  {% for message in messages %}
+    <h1 class="text-success text-center">{{ message }}</h1>
+  {% endfor %}
+{% endif %}
+
+<!-- Your list of records below -->
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Full Name</th>
+            <th>Birth date</th>
+        </tr>
+        </thead>
+        {% for act in actor %}
+        <tr>
+            <td>{{ act.Firstname}}</td>
+            <td>{{ act.Fullname }}</td>
+            <td>{{ act.Birthdate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Actor App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid d-flex justify-content-center">
+        <ul class="navbar-nav flex-row w-100">
+          <li class="nav-item me-3">
+            <a class="nav-link text-white active" href="{% url 'actor_list' %}">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link text-white" href="{% url 'add_actors' %}">Add Actors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'search_actor' %}">Search Actors</a>
+          </li>
+          <li class="nav-item ms-auto">
+  <a class="nav-link text-white" href="{% static 'resume.pdf' %}" target="_blank" c>My Resume</a>
+</li>
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container mt-4">
+    {% block content %}
+    <!-- Child templates will inject content here -->
+    {% endblock %}
+  </div>
+
+</body>
+</html>

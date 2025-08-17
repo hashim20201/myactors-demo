@@ -1,0 +1,57 @@
+<!-- base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Actor App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        body {
+  font-family: 'Roboto', sans-serif;
+}
+    </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid d-flex align-items-center">
+
+        <!-- Centered nav links -->
+        <ul class="navbar-nav flex-row mx-auto">
+          <li class="nav-item me-3">
+            <a class="nav-link text-white active" href="{% url 'actor_list' %}">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link text-white" href="{% url 'add_actors' %}">Add Actors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'search_actor' %}">Search Actors</a>
+          </li>
+        </ul>
+
+        <!-- Resume link pushed to the right -->
+        <div class="ms-auto">
+          <a class="nav-link text-white" href="{% static 'resume.pdf' %}" target="_blank">
+            My Resume
+          </a>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+
+  <div class="container mt-4">
+    {% block content %}
+    <!-- Child templates will inject content here -->
+    {% endblock %}
+  </div>
+
+</body>
+</html>
+
+
+

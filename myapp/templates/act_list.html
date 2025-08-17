@@ -1,0 +1,30 @@
+{% extends  'base.html' %}
+{% block content %}
+
+ <h1 class="text-center pt-2">Actors</h1>
+
+    {% if messages %}
+  {% for message in messages %}
+    <h1 class="text-success text-center">{{ message }}</h1>
+  {% endfor %}
+{% endif %}
+
+<!-- Your list of records below -->
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Full Name</th>
+            <th>Birth date</th>
+        </tr>
+        </thead>
+        {% for act in actor %}
+        <tr>
+            <td>{{ act.Firstname}}</td>
+            <td>{{ act.Fullname }}</td>
+            <td>{{ act.Birthdate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

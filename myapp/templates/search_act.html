@@ -1,0 +1,56 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container pt-3">
+<!-- 
+<form method="get" action="{% url 'search_actor' %}">
+  <input type="text" name="q" placeholder="Enter Actor's name">
+  <button type="submit">Search</button>
+</form> -->
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="get" action="{% url 'search_actor' %}">
+        <div class="mb-3">
+          <label for="name" class="form-label">Search the actor</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="please enter the actor you want to search">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% if actor %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card bg-info my-5">
+        <div class="card-body">
+          <h1>Person Detail</h1>
+          <p>Name: {{ actor.Firstname }}</p>
+          <p>Fullname: {{ actor.Fullname }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% else %}
+<div class="container-fluid alert alert-danger ">
+ <div class="row justify-content-center">
+  <p>No Actor found.</p>
+  </div>
+{% endif %}
+</div>
+</div>
+{% endblock %}
+
+
+
