@@ -82,16 +82,20 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # }
 
 
+
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Movies',
-        'USER': 'admiin',
-        'PASSWORD': 'Birraa12#',
-        'HOST': 'database-1.cp4cewgwckn5.us-east-1.rds.amazonaws.com',  # or RDS endpoint later
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
 
 
 
