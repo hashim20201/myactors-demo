@@ -7,3 +7,5 @@ source:
   dockerfilePath: Dockerfile
   runtime: DOCKER
   port: 8080
+  sourceDirectory: mysite
+
