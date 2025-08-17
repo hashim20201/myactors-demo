@@ -22,4 +22,4 @@ RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
 
 # Start Gunicorn server
-CMD ["gunicorn", "myactors.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "myapp.wsgi:application", "--bind", "0.0.0.0:8000"]
