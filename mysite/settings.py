@@ -64,26 +64,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # }
 
 
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Movies',
-        'USER': 'admiin',
-        'PASSWORD': 'Birraa12#',
-        'HOST': 'database-1.cp4cewgwckn5.us-east-1.rds.amazonaws.com',  # or RDS endpoint later
-        'PORT': '5432',
-    }
-}
-
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://user:password@host:5432/dbname',
-        conn_max_age=600
+        conn_max_age=600,
+        ssl_require=True
     )
 }
-
-
 
 #postgresql://myjup_ienr_user:oY0q3QkGQ6wsvQ5ZQ6dMu5NrwuLJv0Lm@dpg-d2hu2hf5r7bs73er06bg-a.oregon-postgres.render.com/myjup_ienr
 
