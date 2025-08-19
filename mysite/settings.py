@@ -76,8 +76,14 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgres://user:password@host:5432/dbname',
+        conn_max_age=600
+    )
+}
 
-DATABASES['default']=dj_database_url.parse("postgresql://myjup_ienr_user:oY0q3QkGQ6wsvQ5ZQ6dMu5NrwuLJv0Lm@dpg-d2hu2hf5r7bs73er06bg-a.oregon-postgres.render.com/myjup_ienr")
+
 
 #postgresql://myjup_ienr_user:oY0q3QkGQ6wsvQ5ZQ6dMu5NrwuLJv0Lm@dpg-d2hu2hf5r7bs73er06bg-a.oregon-postgres.render.com/myjup_ienr
 
