@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,17 +51,35 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-# Database
+# # Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'NAME': 'Movies',
+        'USER': 'admiin',
+        'PASSWORD': 'Birraa12#',
+        'HOST': 'database-1.cp4cewgwckn5.us-east-1.rds.amazonaws.com',  # or RDS endpoint later
+        'PORT': '5432',
     }
 }
+
+
+DATABASES['default']=dj_database_url.parse("postgresql://myjup_ienr_user:oY0q3QkGQ6wsvQ5ZQ6dMu5NrwuLJv0Lm@dpg-d2hu2hf5r7bs73er06bg-a.oregon-postgres.render.com/myjup_ienr")
+
+#postgresql://myjup_ienr_user:oY0q3QkGQ6wsvQ5ZQ6dMu5NrwuLJv0Lm@dpg-d2hu2hf5r7bs73er06bg-a.oregon-postgres.render.com/myjup_ienr
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
