@@ -63,6 +63,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
+#gunicorn mysite.wsgi:application
 
 DATABASES = {
     'default': dj_database_url.config(
