@@ -64,6 +64,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # }
 
 #gunicorn mysite.wsgi:application
+#Key: DATABASE_URL
+#Value: postgres://admiin:Birraa12%23@database-1.cp4cewgwckn5.us-east-1.rds.amazonaws.com:5432/Movies
 
 DATABASES = {
     'default': dj_database_url.config(
