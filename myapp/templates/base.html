@@ -50,9 +50,9 @@
 <div class="container mt-5">
   <div class="list-group">
   
-  <a href="#" class="list-group-item list-group-item-action">List of Actors </a>
-  <a href="#" class="list-group-item list-group-item-action">Add Actors</a>
-  <a href="#" class="list-group-item list-group-item-action">Search Actors</a>
+  <a href="{% url 'actor_list' %}" class="list-group-item list-group-item-action">List of Actors </a>
+  <a href="{% url 'add_actors' %}" class="list-group-item list-group-item-action">Add Actors</a>
+  <a href="{% url 'search_actor' %}" class="list-group-item list-group-item-action">Search Actors</a>
   <a href="#" class="list-group-item list-group-item-action disabled">Delete Actors</a>
 </div>
 </div>
